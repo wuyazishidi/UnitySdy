@@ -1,2 +1,7 @@
 # UnitySdy
 用于学习Unity知识
+1.lighting面板是全局光照的调整，灯光的inspector是一些局部光照的调整
+2.灯光的realtime是实时光照，mixed是实时加烘焙，baked是将灯光烘焙到贴图，然后把信息文件保存到硬盘
+3.button点击换图改变下Button的模式，改成换sprite的模式就可以了
+4.UI的适配，首先将UI模式改成随屏幕改变而改变，其次，一般游戏都是横屏玩，所以将UI改成match高度的模式，
+里边UI的适配是要考虑到UI的位置而改变不同的锚点
