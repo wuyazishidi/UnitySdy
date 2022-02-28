@@ -10,18 +10,29 @@ using UnityEngine;
 
 public class LoginSys : MonoBehaviour 
 {
+    public static LoginSys Instance = null;
+    public LoginWnd loginWnd;
     public void InitSys()
     {
+        Instance = this;
         Debug.Log("Init LoginSys...");
     }
     public void EnterLogin()
     {
-        GameRoot.Instance.loadingWnd.gameObject.SetActive(true);
-        GameRoot.Instance.loadingWnd.InitWnd();
+       
         //TODO
         //异步加载登录场景
-        ResSvc.Instance.AsyncLoadScene(Constants.SceneLogin);
+        ResSvc.Instance.AsyncLoadScene(Constants.SceneLogin,()=> {
+            //加载完成后打开注册登录界面
+            loginWnd.gameObject.SetActive(true);
+            loginWnd.InitWnd();
+        });
         //并显示加载的进度
-        //加载完成后打开注册登录界面
+    }
+
+    public void OpenLoginWnd()
+    {
+        loginWnd.gameObject.SetActive(true);
+        loginWnd.InitWnd();
     }
 }
