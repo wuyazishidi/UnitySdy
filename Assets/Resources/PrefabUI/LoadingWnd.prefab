@@ -279,6 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6056874448236247037}
+  - component: {fileID: 1244398831}
   m_Layer: 0
   m_Name: LoadingWnd
   m_TagString: Untagged
@@ -306,6 +307,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1244398831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3007203330705535619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00941a52ac98cf345be9f6ffdd203f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtTips: {fileID: 1799362775056335616}
+  imgFG: {fileID: 6353351372042082385}
+  imgPoint: {fileID: 4470344467007234229}
+  txtPrg: {fileID: 3721511837607497632}
 --- !u!1 &4969605161511927812
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +335,7 @@ GameObject:
   - component: {fileID: 3287348210281560464}
   - component: {fileID: 3721511837607497632}
   m_Layer: 0
-  m_Name: Text
+  m_Name: txtPrg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -7,8 +7,29 @@
 *****************************************************/
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LoadingWnd : MonoBehaviour 
 {
+    public Text txtTips;
+    public Image imgFG;
+    public Image imgPoint;
+    public Text txtPrg;
+    private float fgWidth;
+    public void InitWnd()
+    {
+        fgWidth = imgFG.GetComponent<RectTransform>().sizeDelta.x;
+        txtTips.text = "这是一条游戏Tips";
+        txtPrg.text = "0%";
+        imgFG.fillAmount = 0;
+        imgPoint.transform.localPosition = new Vector3(-545f,0,0);
+    }
 
+    public void SetProgress(float prg)
+    {
+        txtPrg.text = (int)(prg*100)+"%";
+        imgFG.fillAmount = prg;
+        float posX = prg * fgWidth - 545;
+        imgPoint.GetComponent<RectTransform>().anchoredPosition = new Vector2(posX,0);
+    }
 }
