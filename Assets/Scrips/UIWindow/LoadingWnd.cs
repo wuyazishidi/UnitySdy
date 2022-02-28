@@ -9,15 +9,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoadingWnd : MonoBehaviour 
+public class LoadingWnd : WindowRoot 
 {
     public Text txtTips;
     public Image imgFG;
     public Image imgPoint;
     public Text txtPrg;
     private float fgWidth;
-    public void InitWnd()
+    protected override void InitWnd()
     {
+        base.InitWnd();
         fgWidth = imgFG.GetComponent<RectTransform>().sizeDelta.x;
         txtTips.text = "这是一条游戏Tips";
         txtPrg.text = "0%";
