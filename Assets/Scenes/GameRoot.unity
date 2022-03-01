@@ -643,6 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1330a35d443950e4683be31712b4404d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resSvc: {fileID: 0}
   iptAcct: {fileID: 849612163}
   iptPass: {fileID: 252352704}
   btnEnter: {fileID: 378272796}
