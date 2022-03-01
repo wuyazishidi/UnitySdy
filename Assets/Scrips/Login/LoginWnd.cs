@@ -43,8 +43,21 @@ public class LoginWnd : WindowRoot
         {
             PlayerPrefs.SetString("Acct",acct);
             PlayerPrefs.SetString("Pass",pass);
+            //TODO 发送网络消息，请求登录
 
+            //TODO Remove
+            LoginSys.Instance.RspLogin();
+        }
+        else
+        {
+            GameRoot.AddTips("账号或者密码为空");
         }
 
+    }
+
+    public void ClickNotiveBtn()
+    {
+        audioSvc.PlayUIAudio(Constants.UIClickBtn);
+        GameRoot.AddTips("功能正在开发中...");
     }
 }

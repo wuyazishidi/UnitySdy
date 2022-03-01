@@ -41,7 +41,7 @@ public class WindowRoot : MonoBehaviour
         resSvc = null;
         audioSvc = null;
     }
-
+    #region Tool Function
     protected void SetActive(GameObject go,bool isActive=true)
     {
         go.SetActive(isActive);
@@ -81,5 +81,5 @@ public class WindowRoot : MonoBehaviour
     {
         SetText(txt, num.ToString());
     }
-
+    #endregion
 }

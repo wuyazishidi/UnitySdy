@@ -33,9 +33,6 @@ public class LoginSys : SystemRoot
             //加载完成后打开注册登录界面
             loginWnd.SetWndState();
             audioSvc.PlayBGMusic(Constants.BGLogin);
-            GameRoot.AddTips("Load Done1");
-            GameRoot.AddTips("Load Done1");
-            GameRoot.AddTips("Load Done2");
         });
     }
 
@@ -48,8 +45,5 @@ public class LoginSys : SystemRoot
         loginWnd.SetWndState(false);
     }    
 
-    public void OpenLoginWnd()
-    {
-        loginWnd.SetWndState();
-    }
+ 
 }
