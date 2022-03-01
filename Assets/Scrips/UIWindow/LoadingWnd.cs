@@ -20,7 +20,7 @@ public class LoadingWnd : WindowRoot
     {
         base.InitWnd();
         fgWidth = imgFG.GetComponent<RectTransform>().sizeDelta.x;
-        txtTips.text = "这是一条游戏Tips";
+        SetText(txtTips, "这是一条游戏Tips");
         txtPrg.text = "0%";
         imgFG.fillAmount = 0;
         imgPoint.transform.localPosition = new Vector3(-545f,0,0);
@@ -28,7 +28,7 @@ public class LoadingWnd : WindowRoot
 
     public void SetProgress(float prg)
     {
-        txtPrg.text = (int)(prg*100)+"%";
+        SetText(txtPrg, (int)(prg * 100) + "%");
         imgFG.fillAmount = prg;
         float posX = prg * fgWidth - 545;
         imgPoint.GetComponent<RectTransform>().anchoredPosition = new Vector2(posX,0);

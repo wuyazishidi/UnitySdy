@@ -31,4 +31,20 @@ public class LoginWnd : WindowRoot
         }
     }
     //TODO 更新账号和密码
+    /// <summary>
+    /// 点击进入游戏
+    /// </summary>
+    public void ClickEnterBtn()
+    {
+        audioSvc.PlayUIAudio(Constants.UILoginBtn);
+        string acct = iptAcct.text;
+        string pass = iptPass.text;
+        if (acct != "" && pass != "")
+        {
+            PlayerPrefs.SetString("Acct",acct);
+            PlayerPrefs.SetString("Pass",pass);
+
+        }
+
+    }
 }

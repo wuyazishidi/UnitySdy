@@ -7,6 +7,7 @@
 *****************************************************/
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -45,5 +46,20 @@ public class ResSvc : MonoBehaviour
         {
             prgCB();
         }
+    }
+
+    public Dictionary<string, AudioClip> adDic = new Dictionary<string, AudioClip>();
+    public AudioClip LoadAudio(string path, bool cache)
+    {
+        AudioClip au = null;
+        if (!adDic.TryGetValue(path, out au))
+        {
+            au = Resources.Load<AudioClip>(path);
+            if (cache)
+            {
+                adDic.Add(path,au);
+            }
+        }
+        return au;
     }
 }
