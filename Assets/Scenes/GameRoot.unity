@@ -607,6 +607,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoginWnd
       objectReference: {fileID: 0}
+    - target: {fileID: 4878614907052199236, guid: 2311491a20485ed4cb15d22b2432561a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4878614907052199237, guid: 2311491a20485ed4cb15d22b2432561a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +21,7 @@ public class ResSvc : MonoBehaviour
         Debug.Log("Init ResSvc...");
     }
     private Action prgCB = null;
-    public void AsyncLoadScene(string sceneName,Action loaded)
+    public void AsyncLoadScene(string sceneName, Action loaded)
     {
         GameRoot.Instance.loadingWnd.SetWndState();
         AsyncOperation sceneAsync = SceneManager.LoadSceneAsync(sceneName);
@@ -57,9 +58,56 @@ public class ResSvc : MonoBehaviour
             au = Resources.Load<AudioClip>(path);
             if (cache)
             {
-                adDic.Add(path,au);
+                adDic.Add(path, au);
             }
         }
         return au;
     }
+
+    #region InitCfgs
+    private List<string> surnameLst = new List<string>();
+    private List<string> manLst = new List<string>();
+    private List<string> wowanLst = new List<string>();
+    private void InitRDNameCfg()
+    {
+        TextAsset xml = Resources.Load<TextAsset>(PathDefine.RDNameCfg);
+        if (!xml)
+        {
+            Debug.LogError("xml file:" + PathDefine.RDNameCfg + "no exit");
+        }
+        else
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml.text);
+            XmlNodeList nodLst = doc.SelectSingleNode("root").ChildNodes;
+            for (int i = 0; i < nodLst.Count; i++)
+            {
+                XmlElement ele = nodLst[i] as XmlElement;
+
+                if (ele.GetAttributeNode("ID") == null)
+                {
+                    continue;
+                }
+                int ID = Convert.ToInt32(ele.GetAttributeNode("ID").InnerText);
+                foreach (XmlElement e in nodLst[i].ChildNodes)
+                {
+                    switch (e.Name)
+                    {
+                        case "surname":
+                            surnameLst.Add(e.InnerText);
+                            break;
+                        case "man":
+                            manLst.Add(e.InnerText);
+                            break;
+                        case "woman":
+                            wowanLst.Add(e.InnerText);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+    }
+    #endregion
 }
