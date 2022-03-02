@@ -10,6 +10,7 @@ using UnityEngine;
 
 public class LoginSys : SystemRoot
 {
+
     public static LoginSys Instance = null;
     public LoginWnd loginWnd;
     public CreateWnd createWnd;
