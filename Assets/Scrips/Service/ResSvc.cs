@@ -18,6 +18,7 @@ public class ResSvc : MonoBehaviour
     public void InitSvc()
     {
         Instance = this;
+        InitRDNameCfg();
         Debug.Log("Init ResSvc...");
     }
     private Action prgCB = null;
@@ -108,6 +109,21 @@ public class ResSvc : MonoBehaviour
                 }
             }
         }
+    }
+
+    public string GetRDNameData(bool man=true)
+    {
+        System.Random rd = new System.Random();
+        string rdName = surnameLst[PETools.RDInt(0, surnameLst.Count - 1)];
+        if (man)
+        {
+            rdName += manLst[PETools.RDInt(0, manLst.Count - 1)];
+        }
+        else
+        {
+            rdName += wowanLst[PETools.RDInt(0, wowanLst.Count - 1)];
+        }
+        return rdName;
     }
     #endregion
 }
