@@ -6517,6 +6517,7 @@ public class LoginSys : .
 
 
 {
+
     public static LoginSys Instance = null;
     public LoginWnd loginWnd;
     public CreateWnd createWnd;
